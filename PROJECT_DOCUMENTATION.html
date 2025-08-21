@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ Food Manor - Project Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #e74c3c;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 15px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        
+        .tech-card {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #bdc3c7;
+        }
+        
+        .tech-card h3 {
+            color: #ffffff !important;
+            margin-bottom: 15px;
+        }
+        
+        .tech-card h4 {
+            color: #ecf0f1 !important;
+            margin: 15px 0 10px 0;
+        }
+        
+        .tech-card p {
+            color: #ffffff;
+        }
+        
+        .tech-card ul li {
+            color: #ffffff;
+        }
+        
+        .feature-box {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #2c3e50;
+        }
+        
+        .feature-box strong {
+            color: #27ae60;
+        }
+        
+        .feature-box ul li {
+            color: #2c3e50;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #856404;
+        }
+        
+        .warning-box h4 {
+            color: #856404 !important;
+        }
+        
+        .warning-box p {
+            color: #856404;
+        }
+        
+        .warning-box strong {
+            color: #856404;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #0c5460;
+        }
+        
+        .info-box h3 {
+            color: #0c5460 !important;
+        }
+        
+        .info-box h4 {
+            color: #0c5460 !important;
+        }
+        
+        .info-box p {
+            color: #0c5460;
+        }
+        
+        .info-box strong {
+            color: #0c5460;
+        }
+        
+        .info-box ul li {
+            color: #0c5460;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .toc h3 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 5px;
+        }
+        
+        .toc a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 5px 0;
+            display: block;
+        }
+        
+        .toc a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-line;
+            color: #2c3e50;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            h1, h2 {
+                page-break-after: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ Food Manor - Project Documentation</h1>
+        
+        <div class="toc">
+            <h3>📋 Table of Contents</h3>
+            <ul>
+                <li><a href="#tech-explanations">0. Technology Explanations</a></li>
+                <li><a href="#tech-stack">1. Tech Stack</a></li>
+                <li><a href="#file-functionality">2. File-by-File Functionality</a></li>
+                <li><a href="#how-it-works">3. How the Project Works</a></li>
+                <li><a href="#advanced-concepts">4. Advanced Theoretical Concepts</a></li>
+                <li><a href="#setup-guide">5. Setup and Installation Guide</a></li>
+                <li><a href="#api-docs">6. API Documentation</a></li>
+                <li><a href="#contributing">7. Contributing Guidelines</a></li>
+                <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+                <li><a href="#future-enhancements">9. Future Enhancements</a></li>
+            </ul>
+        </div>
+
+        <h2 id="tech-explanations">0. Technology Explanations</h2>
+
+        <div class="tech-card">
+            <h3>What is React?</h3>
+            <p><strong>React</strong> is a JavaScript library created by Facebook for building user interfaces, especially for web applications. Think of it like building blocks for websites.</p>
+            
+            <h4>Key Concepts:</h4>
+            <ul>
+                <li><strong>Components</strong>: Reusable pieces of UI (like LEGO blocks)</li>
+                <li><strong>Virtual DOM</strong>: React creates a copy of the webpage in memory for faster updates</li>
+                <li><strong>JSX</strong>: Allows you to write HTML-like code inside JavaScript</li>
+                <li><strong>State</strong>: Data that can change and update the UI automatically</li>
+                <li><strong>Hooks</strong>: Functions that let you use state and other React features</li>
+            </ul>
+            
+            <h4>Why Use React?</h4>
+            <ul>
+                <li>Makes complex websites easier to build and maintain</li>
+                <li>Reusable components save development time</li>
+                <li>Large community and job market</li>
+                <li>Used by Facebook, Netflix, Instagram, Airbnb</li>
+            </ul>
+            
+            <div class="feature-box">
+                <strong>In Our Project</strong>: React creates all the pages (Home, Restaurant Menu, Cart, About) and handles user interactions like adding items to cart and filtering restaurants.
+            </div>
+            
+            <h4>How React is Used in Food Manor</h4>
+            <div class="info-box">
+                <strong>Component Architecture</strong>:
+                <ul>
+                    <li><strong>App.js</strong>: Root component that sets up Redux Provider, UserContext, React Router, and Toaster notifications</li>
+                    <li><strong>Header.js</strong>: Functional component using useState for mobile menu toggle, useContext for user data, useSelector for cart items count</li>
+                    <li><strong>Body.js</strong>: Main homepage component using useState for restaurant list, search text, filters, and loading states. useEffect for API calls on component mount</li>
+                    <li><strong>RestaurantCard.js</strong>: Pure presentational component receiving restaurant data via props and displaying it with JSX</li>
+                    <li><strong>RestaurantMenu.js</strong>: Uses useParams hook to get restaurant ID from URL, custom useRestaurantMenu hook for data fetching, useState for accordion states</li>
+                    <li><strong>Cart.js</strong>: Uses useSelector to access Redux cart state, useDispatch to trigger cart actions, conditional rendering for empty/filled cart states</li>
+                </ul>
+                
+                <strong>React Hooks Implementation</strong>:
+                <ul>
+                    <li><strong>useState</strong>: Managing local component state for search filters, modal visibility, form inputs, loading states</li>
+                    <li><strong>useEffect</strong>: API calls on component mount, cleanup functions for event listeners, dependency arrays for optimized re-renders</li>
+                    <li><strong>useContext</strong>: Accessing user authentication state across components without prop drilling</li>
+                    <li><strong>useSelector & useDispatch</strong>: Redux hooks for accessing global cart state and dispatching actions</li>
+                    <li><strong>Custom Hooks</strong>: useRestaurantMenu for API data fetching, useOnlineStatus for network connectivity</li>
+                </ul>
+                
+                <strong>JSX and Virtual DOM</strong>:
+                <ul>
+                    <li><strong>Dynamic Rendering</strong>: Conditional rendering based on loading states, data availability, user authentication</li>
+                    <li><strong>Event Handling</strong>: onClick handlers for cart actions, form submissions, navigation, filter changes</li>
+                    <li><strong>List Rendering</strong>: Mapping over restaurant arrays and menu items with unique keys for optimal reconciliation</li>
+                    <li><strong>Component Composition</strong>: Nesting components like RestaurantCard inside Body, ItemList inside RestaurantCategory</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tech-card">
+            <h3>What is Redux Toolkit?</h3>
+            <p><strong>Redux Toolkit</strong> is the official, recommended way to write Redux logic. It's a state management library that helps manage application data across components.</p>
+            
+            <h4>Key Concepts:</h4>
+            <ul>
+                <li><strong>Store</strong>: Central place where all app data lives</li>
+                <li><strong>Slices</strong>: Pieces of state with their update logic</li>
+                <li><strong>Actions</strong>: Events that describe what happened</li>
+                <li><strong>Reducers</strong>: Functions that update state based on actions</li>
+                <li><strong>Dispatch</strong>: Function to send actions to the store</li>
+            </ul>
+            
+            <h4>Why Use Redux Toolkit?</h4>
+            <ul>
+                <li>Predictable state management</li>
+                <li>Easy debugging with Redux DevTools</li>
+                <li>Prevents prop drilling (passing data through many components)</li>
+                <li>Time-travel debugging capabilities</li>
+            </ul>
+            
+            <div class="feature-box">
+                <strong>In Our Project</strong>: Redux manages the shopping cart state, allowing users to add/remove items from any component and maintain cart data across page navigation.
+            </div>
+            
+            <h4>How Redux Toolkit is Used in Food Manor</h4>
+            <div class="info-box">
+                <strong>Store Configuration (appStore.js)</strong>:
+                <ul>
+                    <li><strong>configureStore</strong>: Creates Redux store with cart reducer, includes Redux DevTools integration automatically</li>
+                    <li><strong>Provider Setup</strong>: Wraps entire App component to make store available to all child components</li>
+                    <li><strong>Middleware</strong>: Built-in Redux Toolkit middleware for immutability checks and serializable state</li>
+                </ul>
+                
+                <strong>Cart Slice Implementation (cartSlice.js)</strong>:
+                <ul>
+                    <li><strong>createSlice</strong>: Defines cart slice with name 'cart', initial state { items: [] }, and three reducers</li>
+                    <li><strong>addItem Reducer</strong>: Pushes new menu item to items array when user clicks 'ADD +' button</li>
+                    <li><strong>removeItem Reducer</strong>: Removes last item from array using pop() method</li>
+                    <li><strong>clearCart Reducer</strong>: Sets items array length to 0 to empty entire cart</li>
+                    <li><strong>Action Creators</strong>: Automatically generated action creators exported for use in components</li>
+                </ul>
+                
+                <strong>Component Integration</strong>:
+                <ul>
+                    <li><strong>useSelector Hook</strong>: Used in Header.js to get cart items count for badge, in Cart.js to display all items</li>
+                    <li><strong>useDispatch Hook</strong>: Used in RestaurantMenu.js to dispatch addItem action, in Cart.js for removeItem and clearCart</li>
+                    <li><strong>State Subscription</strong>: Components automatically re-render when cart state changes</li>
+                    <li><strong>Immutable Updates</strong>: Redux Toolkit uses Immer internally for immutable state updates</li>
+                </ul>
+                
+                <strong>Data Flow</strong>:
+                <ul>
+                    <li><strong>Action Dispatch</strong>: User clicks button → dispatch(addItem(menuItem)) → reducer updates state → components re-render</li>
+                    <li><strong>State Access</strong>: Components use useSelector((store) => store.cart.items) to access current cart state</li>
+                    <li><strong>Persistence</strong>: Cart state maintained across page navigation and component unmounting</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tech-card">
+            <h3>What is Tailwind CSS?</h3>
+            <p><strong>Tailwind CSS</strong> is a utility-first CSS framework that provides low-level utility classes to build custom designs.</p>
+            
+            <h4>Key Concepts:</h4>
+            <ul>
+                <li><strong>Utility Classes</strong>: Small, single-purpose classes (like <code>text-center</code>, <code>bg-blue-500</code>)</li>
+                <li><strong>Responsive Design</strong>: Built-in responsive utilities (<code>md:text-lg</code>, <code>lg:grid-cols-4</code>)</li>
+                <li><strong>Component Composition</strong>: Build complex components by combining utilities</li>
+                <li><strong>Customization</strong>: Easily customizable through configuration</li>
+            </ul>
+            
+            <div class="feature-box">
+                <strong>In Our Project</strong>: Tailwind provides all styling for the modern, responsive interface including cards, buttons, grids, and animations.
+            </div>
+            
+            <h4>How Tailwind CSS is Used in Food Manor</h4>
+            <div class="info-box">
+                <strong>Configuration (tailwind.config.js)</strong>:
+                <ul>
+                    <li><strong>Content Paths</strong>: Configured to scan ./src/**/*.{js,jsx,ts,tsx} for class usage</li>
+                    <li><strong>Theme Extension</strong>: Custom colors, fonts, and spacing can be added to extend default theme</li>
+                    <li><strong>Plugins</strong>: Ready for additional plugins like forms, typography, aspect-ratio</li>
+                </ul>
+                
+                <strong>Layout and Structure</strong>:
+                <ul>
+                    <li><strong>Header Component</strong>: Uses 'fixed top-0 left-0 right-0' for sticky header, 'flex items-center justify-between' for navigation layout</li>
+                    <li><strong>Restaurant Grid</strong>: 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8' for responsive restaurant card layout</li>
+                    <li><strong>Container Classes</strong>: 'max-w-[1200px] mx-auto px-4' for consistent content width and centering</li>
+                    <li><strong>Flexbox Utilities</strong>: 'flex flex-col items-center justify-center' for cart empty state alignment</li>
+                </ul>
+                
+                <strong>Responsive Design</strong>:
+                <ul>
+                    <li><strong>Breakpoint Prefixes</strong>: 'hidden md:flex' for desktop-only navigation, 'md:hidden' for mobile menu button</li>
+                    <li><strong>Grid Responsiveness</strong>: Different column counts at different screen sizes for optimal viewing</li>
+                    <li><strong>Text Sizing</strong>: 'text-xl md:text-2xl lg:text-4xl' for scalable typography</li>
+                    <li><strong>Spacing</strong>: 'p-4 md:p-6 lg:p-8' for responsive padding</li>
+                </ul>
+                
+                <strong>Component Styling</strong>:
+                <ul>
+                    <li><strong>Restaurant Cards</strong>: 'bg-white rounded-2xl shadow-lg hover:scale-95 transition-transform' for modern card design</li>
+                    <li><strong>Buttons</strong>: 'bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors' for consistent button styling</li>
+                    <li><strong>Cart Badge</strong>: 'absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full h-5 w-5' for notification badge</li>
+                    <li><strong>Loading States</strong>: 'animate-pulse bg-gray-300 rounded' for shimmer loading effects</li>
+                </ul>
+                
+                <strong>Interactive Elements</strong>:
+                <ul>
+                    <li><strong>Hover Effects</strong>: 'hover:bg-gray-50', 'hover:text-orange-500', 'hover:shadow-md' for user feedback</li>
+                    <li><strong>Focus States</strong>: 'focus:outline-none focus:border-orange-500' for accessibility</li>
+                    <li><strong>Transitions</strong>: 'transition-colors duration-200', 'transition-transform' for smooth animations</li>
+                    <li><strong>Active States</strong>: 'active:scale-95' for button press feedback</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tech-card">
+            <h3>What is React Router DOM?</h3>
+            <p><strong>React Router DOM</strong> is a library for handling navigation and routing in React applications.</p>
+            
+            <h4>Key Concepts:</h4>
+            <ul>
+                <li><strong>Routes</strong>: Define which component to show for each URL</li>
+                <li><strong>Links</strong>: Navigate between pages without page refresh</li>
+                <li><strong>Parameters</strong>: Pass data through URLs (like restaurant ID)</li>
+                <li><strong>Nested Routes</strong>: Routes inside other routes</li>
+                <li><strong>History</strong>: Browser navigation history management</li>
+            </ul>
+            
+            <div class="feature-box">
+                <strong>In Our Project</strong>: React Router handles navigation between Home, About, Contact, Restaurant Menu, Cart, and Grocery pages with dynamic restaurant IDs.
+            </div>
+            
+            <h4>How React Router DOM is Used in Food Manor</h4>
+            <div class="info-box">
+                <strong>Router Setup (App.js)</strong>:
+                <ul>
+                    <li><strong>BrowserRouter</strong>: Wraps entire application in index.js to enable routing functionality</li>
+                    <li><strong>Routes Container</strong>: Contains all Route definitions with path and element props</li>
+                    <li><strong>Route Configuration</strong>: Each route maps URL path to specific React component</li>
+                </ul>
+                
+                <strong>Route Definitions</strong>:
+                <ul>
+                    <li><strong>Home Route</strong>: path="/" element={&lt;Body /&gt;} - Main restaurant listing page</li>
+                    <li><strong>Dynamic Route</strong>: path="/restaurant/:resId" element={&lt;RestaurantMenu /&gt;} - Restaurant menu with dynamic ID</li>
+                    <li><strong>Static Routes</strong>: /about, /contact, /cart, /grocery for different pages</li>
+                    <li><strong>Nested Route</strong>: /about/profile shows Profile component inside About component</li>
+                    <li><strong>Catch-all Route</strong>: path="*" element={&lt;Error /&gt;} for 404 error handling</li>
+                </ul>
+                
+                <strong>Navigation Implementation</strong>:
+                <ul>
+                    <li><strong>Link Components</strong>: &lt;Link to="/cart"&gt; in Header.js for navigation without page refresh</li>
+                    <li><strong>Dynamic Links</strong>: &lt;Link to={`/restaurant/${restaurant?.info?.id}`}&gt; for restaurant-specific pages</li>
+                    <li><strong>Navigation State</strong>: Active link styling based on current route</li>
+                </ul>
+                
+                <strong>Hooks Usage</strong>:
+                <ul>
+                    <li><strong>useParams</strong>: const { resId } = useParams() in RestaurantMenu.js to extract restaurant ID from URL</li>
+                    <li><strong>useNavigate</strong>: Programmatic navigation for form submissions or conditional redirects</li>
+                    <li><strong>useLocation</strong>: Access current location for conditional rendering or analytics</li>
+                </ul>
+                
+                <strong>Advanced Features</strong>:
+                <ul>
+                    <li><strong>Lazy Loading</strong>: const Grocery = lazy(() => import('./components/Grocery')) for code splitting</li>
+                    <li><strong>Suspense</strong>: Wraps lazy-loaded components with loading fallback</li>
+                    <li><strong>Nested Routing</strong>: About page contains nested Profile route for hierarchical navigation</li>
+                    <li><strong>Route Protection</strong>: Conditional rendering based on authentication state</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="tech-stack">1. Tech Stack</h2>
+
+        <h3>Frontend Technologies</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Technology</th>
+                    <th>Version</th>
+                    <th>Purpose in Project</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>React</strong></td>
+                    <td>19.0.0</td>
+                    <td>Core frontend framework for building the user interface and managing component state</td>
+                </tr>
+                <tr>
+                    <td><strong>React Router DOM</strong></td>
+                    <td>6.16.0</td>
+                    <td>Handles client-side routing between different pages (Home, Menu, Cart, About)</td>
+                </tr>
+                <tr>
+                    <td><strong>Redux Toolkit</strong></td>
+                    <td>2.6.1</td>
+                    <td>State management for cart functionality and global app state</td>
+                </tr>
+                <tr>
+                    <td><strong>React Redux</strong></td>
+                    <td>9.2.0</td>
+                    <td>React bindings for Redux to connect components to the store</td>
+                </tr>
+                <tr>
+                    <td><strong>Tailwind CSS</strong></td>
+                    <td>3.4.17</td>
+                    <td>Utility-first CSS framework for responsive design and styling</td>
+                </tr>
+                <tr>
+                    <td><strong>Framer Motion</strong></td>
+                    <td>12.5.0</td>
+                    <td>Animation library for smooth transitions and interactive elements</td>
+                </tr>
+                <tr>
+                    <td><strong>React Hot Toast</strong></td>
+                    <td>2.5.2</td>
+                    <td>Toast notifications for user feedback and alerts</td>
+                </tr>
+                <tr>
+                    <td><strong>React Icons</strong></td>
+                    <td>5.5.0</td>
+                    <td>Icon library for consistent iconography throughout the app</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="file-functionality">2. File-by-File Functionality</h2>
+
+        <h3>Root Configuration Files</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Purpose / Functionality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>package.json</code></td>
+                    <td>Defines project dependencies, scripts, and metadata</td>
+                </tr>
+                <tr>
+                    <td><code>.gitignore</code></td>
+                    <td>Specifies files to ignore in version control</td>
+                </tr>
+                <tr>
+                    <td><code>README.md</code></td>
+                    <td>Project overview and basic setup instructions</td>
+                </tr>
+                <tr>
+                    <td><code>tailwind.config.js</code></td>
+                    <td>Tailwind CSS configuration and customization</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Components (/src/components)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Purpose / Functionality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Header.js</code></td>
+                    <td>Navigation header with logo, menu links, cart icon, and user authentication</td>
+                </tr>
+                <tr>
+                    <td><code>Footer.js</code></td>
+                    <td>Footer component with branding and copyright information</td>
+                </tr>
+                <tr>
+                    <td><code>Body.js</code></td>
+                    <td>Main homepage component with restaurant listing, search, and filters</td>
+                </tr>
+                <tr>
+                    <td><code>RestaurantCard.js</code></td>
+                    <td>Individual restaurant card displaying image, name, rating, and details</td>
+                </tr>
+                <tr>
+                    <td><code>RestaurantMenu.js</code></td>
+                    <td>Detailed restaurant page with menu items and ordering functionality</td>
+                </tr>
+                <tr>
+                    <td><code>Cart.js</code></td>
+                    <td>Shopping cart page with item management and checkout functionality</td>
+                </tr>
+                <tr>
+                    <td><code>About.js</code></td>
+                    <td>About page with company information and nested routing</td>
+                </tr>
+                <tr>
+                    <td><code>Contact.js</code></td>
+                    <td>Contact page with form and company details</td>
+                </tr>
+                <tr>
+                    <td><code>Shimmer.js</code></td>
+                    <td>Loading skeleton component for restaurant cards</td>
+                </tr>
+                <tr>
+                    <td><code>LoginModal.js</code></td>
+                    <td>Modal component for user authentication</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="how-it-works">3. How the Project Works (Overall Functionality)</h2>
+
+        <h3>Application Overview</h3>
+        <p>Food Manor is a modern, responsive food ordering web application that simulates a real-world food delivery service. It provides users with an intuitive interface to browse restaurants, view menus, add items to cart, and manage their orders. The application integrates with Swiggy's API to provide real restaurant data and images, demonstrating advanced React concepts including state management, API integration, and modern UI/UX patterns.</p>
+
+        <h3>User Journey Flow</h3>
+
+        <h4>1. Application Access & Landing</h4>
+        <ul>
+            <li>User visits the application URL</li>
+            <li>Application loads with a modern, responsive design using Tailwind CSS</li>
+            <li>Header displays with navigation, online status indicator, and cart icon with badge</li>
+            <li>Main dashboard shows restaurant listings with advanced search and filter options</li>
+            <li>Loading states are handled with Shimmer components for better UX</li>
+        </ul>
+
+        <h4>2. Restaurant Discovery & Search</h4>
+        <ul>
+            <li><strong>Browse Restaurants</strong>: Grid layout displaying restaurant cards with images, ratings, cuisines, and delivery info</li>
+            <li><strong>Real-time Search</strong>: Debounced search functionality across restaurant names with instant results</li>
+            <li><strong>Advanced Filters</strong>: Multi-criteria filtering by rating (4.0+), fast delivery, pure veg, and promotional offers</li>
+            <li><strong>Online Status Detection</strong>: Custom hook monitors internet connectivity and displays visual indicator</li>
+            <li><strong>Loading States</strong>: Shimmer components provide smooth loading experience during API calls</li>
+            <li><strong>Error Handling</strong>: Graceful error states with retry mechanisms for failed API requests</li>
+        </ul>
+
+        <h4>3. Restaurant Selection & Menu Browsing</h4>
+        <ul>
+            <li><strong>Dynamic Routing</strong>: Click on restaurant card navigates to detailed menu page using React Router with restaurant ID parameter</li>
+            <li><strong>Restaurant Information</strong>: Comprehensive display of restaurant image, name, cuisines, rating, delivery time, cost for two, and location</li>
+            <li><strong>Menu Organization</strong>: Accordion-style menu categories with expand/collapse functionality for better navigation</li>
+            <li><strong>Item Details</strong>: Each menu item displays name, price, description, veg/non-veg indicator, and high-quality images</li>
+            <li><strong>Offers & Discounts</strong>: Dynamic display of available promotional offers and discount information</li>
+            <li><strong>Interactive Elements</strong>: Hover effects and smooth animations using Framer Motion</li>
+        </ul>
+
+        <h4>4. Shopping Cart Management</h4>
+        <ul>
+            <li><strong>Add to Cart</strong>: Click "ADD +" button triggers Redux action to add items with immediate toast notification feedback</li>
+            <li><strong>Cart State Management</strong>: Redux Toolkit manages global cart state accessible from any component</li>
+            <li><strong>Visual Feedback</strong>: Header cart icon shows real-time item count with animated badge</li>
+            <li><strong>Cart Page</strong>: Dedicated page showing all cart items with images, quantities, and individual prices</li>
+            <li><strong>Item Management</strong>: Remove individual items or clear entire cart with confirmation</li>
+            <li><strong>Price Calculation</strong>: Automatic calculation of subtotal, delivery fee, taxes, and total amount</li>
+            <li><strong>Empty Cart State</strong>: Engaging empty state with custom SVG illustration and call-to-action</li>
+            <li><strong>Persistent State</strong>: Cart data persists across page refreshes and navigation</li>
+        </ul>
+
+        <h4>5. User Authentication & Profile Management</h4>
+        <ul>
+            <li><strong>Login Modal</strong>: Modal-based authentication system with form validation</li>
+            <li><strong>User Context</strong>: React Context API manages user state across the application</li>
+            <li><strong>Local Storage</strong>: User session data persisted in browser storage</li>
+            <li><strong>Profile Display</strong>: User name displayed in header with logout functionality</li>
+        </ul>
+
+        <h4>6. Navigation & Additional Features</h4>
+        <ul>
+            <li><strong>Single Page Application</strong>: Seamless navigation without page refreshes using React Router</li>
+            <li><strong>About Page</strong>: Company information with nested routing for profile section</li>
+            <li><strong>Contact Page</strong>: Contact form with validation and company details</li>
+            <li><strong>Grocery Section</strong>: Lazy-loaded component demonstrating code splitting</li>
+            <li><strong>Error Boundaries</strong>: Custom error pages for invalid routes and component errors</li>
+            <li><strong>Responsive Design</strong>: Mobile-first approach with breakpoint-specific layouts</li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+
+        <h4>Frontend Architecture (React)</h4>
+        <p>The application follows a component-based architecture with clear separation of concerns, implementing modern React patterns and best practices.</p>
+
+        <h4>Component Hierarchy</h4>
+        <div class="architecture-diagram">
+App.js (Root Component)
+├── Provider (Redux Store Provider)
+├── UserContext.Provider (User Authentication Context)
+├── Toaster (Global Toast Notifications)
+├── Header.js (Navigation & User State)
+│   ├── Logo & Branding
+│   ├── Navigation Links
+│   ├── Online Status Indicator
+│   ├── Cart Icon with Badge
+│   └── User Authentication
+├── Routes (React Router Configuration)
+│   ├── Body.js (Home - Restaurant Listing)
+│   │   ├── Search & Filter Controls
+│   │   ├── RestaurantCard.js (Individual Restaurant)
+│   │   └── Shimmer.js (Loading Skeleton)
+│   ├── RestaurantMenu.js (Menu Details)
+│   │   ├── Restaurant Information Header
+│   │   ├── RestaurantCategory.js (Menu Categories)
+│   │   ├── ItemList.js (Menu Items)
+│   │   └── ShimmerMenu.js (Menu Loading State)
+│   ├── Cart.js (Shopping Cart Management)
+│   │   ├── Cart Items List
+│   │   ├── Price Calculation
+│   │   └── Empty Cart State
+│   ├── About.js (Company Information)
+│   │   └── Profile.js (Nested User Profile)
+│   ├── Contact.js (Contact Form & Details)
+│   ├── Grocery.js (Lazy Loaded Feature)
+│   └── Error.js (Error Boundary & 404)
+├── Footer.js (Footer Information)
+└── LoginModal.js (Authentication Modal)
+        </div>
+
+        <h4>State Management Architecture</h4>
+        <div class="architecture-diagram">
+State Management Layers:
+
+1. Redux Store (Global State)
+   └── appStore.js (Store Configuration)
+       └── cartSlice.js (Cart State Management)
+           ├── State: { items: [] }
+           ├── Actions:
+           │   ├── addItem(payload) - Add item to cart
+           │   ├── removeItem() - Remove last item
+           │   └── clearCart() - Clear all items
+           └── Reducers: Pure functions for state updates
+
+2. React Context (User State)
+   └── UserContext.js
+       ├── loggedInUser (Current user name)
+       └── setUserName (Update user function)
+
+3. Local Component State
+   ├── useState() - Component-specific state
+   ├── useEffect() - Side effects & lifecycle
+   └── Custom Hooks - Reusable stateful logic
+
+4. Browser Storage
+   ├── localStorage - User session persistence
+   └── sessionStorage - Temporary data storage
+        </div>
+
+        <h4>Data Flow Architecture</h4>
+        <div class="info-box">
+            <strong>Restaurant Data Flow:</strong><br>
+            Swiggy API → useRestaurantMenu Hook → Component State → UI Render → User Interaction → State Update
+        </div>
+
+        <div class="info-box">
+            <strong>Cart Management Flow:</strong><br>
+            User Action → Dispatch Redux Action → Reducer Updates Store → Components Re-render → UI Updates → Toast Notification
+        </div>
+
+        <div class="info-box">
+            <strong>Search & Filter Flow:</strong><br>
+            User Input → Debounced State Update → Filter Logic Execution → Filtered Results → Component Re-render → UI Update
+        </div>
+
+        <div class="info-box">
+            <strong>Authentication Flow:</strong><br>
+            User Login → Form Validation → Context Update → Local Storage → Header Re-render → Global State Sync
+        </div>
+
+        <h4>API Integration Architecture</h4>
+        <div class="architecture-diagram">
+API Integration Pattern:
+
+1. External APIs
+   ├── Swiggy Restaurant List API
+   │   ├── Endpoint: /restaurants/list/v5
+   │   ├── Parameters: lat, lng, page_type
+   │   └── Response: Restaurant data with images
+   └── Swiggy Menu API
+       ├── Endpoint: /menu/pl
+       ├── Parameters: restaurantId, lat, lng
+       └── Response: Menu categories and items
+
+2. Custom Hooks (API Abstraction)
+   ├── useRestaurantMenu(resId)
+   │   ├── Fetches menu data
+   │   ├── Handles loading states
+   │   ├── Error handling
+   │   └── Returns processed data
+   └── useOnlineStatus()
+       ├── Monitors network status
+       ├── Event listeners for online/offline
+       └── Returns boolean status
+
+3. Data Processing
+   ├── API Response Parsing
+   ├── Data Transformation
+   ├── Error Handling
+   └── Loading State Management
+        </div>
+
+        <h4>Performance Optimization Strategies</h4>
+        <ul>
+            <li><strong>Code Splitting</strong>: Lazy loading of Grocery component using React.lazy()</li>
+            <li><strong>Memoization</strong>: React.memo() for expensive components, useMemo() for calculations</li>
+            <li><strong>Debouncing</strong>: Search input debouncing to reduce API calls</li>
+            <li><strong>Image Optimization</strong>: Cloudinary CDN with automatic optimization</li>
+            <li><strong>Bundle Optimization</strong>: Webpack code splitting and tree shaking</li>
+            <li><strong>Caching</strong>: Browser caching for static assets and API responses</li>
+        </ul>
+
+        <h2 id="advanced-concepts">4. Advanced Theoretical Concepts</h2>
+
+        <h3>Design Patterns Implementation</h3>
+
+        <h4>1. Component Composition Pattern</h4>
+        <p><strong>Theory</strong>: Building complex UIs by combining smaller, focused components that work together to create larger functionality.</p>
+        <div class="feature-box">
+            <strong>Implementation in Food Manor</strong>:
+            <ul>
+                <li><code>RestaurantCard</code> components compose the restaurant listing grid</li>
+                <li><code>ItemList</code> and <code>RestaurantCategory</code> compose the menu structure</li>
+                <li><code>Header</code>, <code>Body</code>, and <code>Footer</code> compose the main application layout</li>
+                <li>Reusable components like <code>Shimmer</code> provide consistent loading states</li>
+                <li>Modal components compose authentication and confirmation dialogs</li>
+            </ul>
+        </div>
+
+        <h4>2. Container/Presentational Pattern</h4>
+        <p><strong>Theory</strong>: Separating components that manage data and logic (containers) from components that handle presentation (presentational).</p>
+        <div class="feature-box">
+            <strong>Implementation in Food Manor</strong>:
+            <ul>
+                <li><code>Body.js</code> (Container): Manages restaurant data, search logic, and filtering operations</li>
+                <li><code>RestaurantCard.js</code> (Presentational): Only displays restaurant information passed via props</li>
+                <li><code>Cart.js</code> (Container): Manages cart state, calculations, and operations</li>
+                <li><code>RestaurantMenu.js</code> (Container): Handles menu data fetching and state management</li>
+                <li>Custom hooks abstract data fetching logic from presentation components</li>
+            </ul>
+        </div>
+
+        <h4>3. Observer Pattern</h4>
+        <p><strong>Theory</strong>: Objects (observers) automatically get notified when another object (subject) changes state, enabling reactive programming.</p>
+        <div class="feature-box">
+            <strong>Implementation in Food Manor</strong>:
+            <ul>
+                <li>Redux store notifications to subscribed components via <code>useSelector</code></li>
+                <li>React state updates triggering automatic component re-renders</li>
+                <li>Custom hooks like <code>useOnlineStatus</code> observing browser network events</li>
+                <li>Toast notifications responding to user actions and state changes</li>
+                <li>Context consumers automatically updating when context value changes</li>
+            </ul>
+        </div>
+
+        <h4>4. Factory Pattern</h4>
+        <p><strong>Theory</strong>: Creating objects without specifying exact classes, using a common interface or factory function.</p>
+        <div class="feature-box">
+            <strong>Implementation in Food Manor</strong>:
+            <ul>
+                <li>Dynamic component rendering based on route parameters and data types</li>
+                <li>Toast notification creation with different types (success, error, loading)</li>
+                <li>Shimmer component generation for different loading states and layouts</li>
+                <li>API response processing factories for different data structures</li>
+            </ul>
+        </div>
+
+        <h4>5. Strategy Pattern</h4>
+        <p><strong>Theory</strong>: Selecting algorithms or behaviors at runtime based on context, allowing for flexible and interchangeable implementations.</p>
+        <div class="feature-box">
+            <strong>Implementation in Food Manor</strong>:
+            <ul>
+                <li>Different filtering strategies (rating, delivery time, veg/non-veg, offers)</li>
+                <li>Multiple search strategies (name-based, cuisine-based, location-based)</li>
+                <li>Conditional rendering strategies based on data availability and loading states</li>
+                <li>Error handling strategies for different types of failures (network, API, validation)</li>
+            </ul>
+        </div>
+
+        <h3>Software Engineering Principles</h3>
+
+        <h4>SOLID Principles in React Development</h4>
+
+        <div class="info-box">
+            <strong>Single Responsibility Principle (SRP)</strong>
+            <p>Each component and function has one clear, well-defined purpose:</p>
+            <ul>
+                <li><code>RestaurantCard.js</code> - Only responsible for displaying restaurant information</li>
+                <li><code>cartSlice.js</code> - Only manages cart state and related operations</li>
+                <li><code>useRestaurantMenu.js</code> - Only handles menu data fetching and processing</li>
+                <li><code>Header.js</code> - Only manages navigation, user state, and cart display</li>
+                <li>Each utility function performs a single, specific task</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Open/Closed Principle (OCP)</strong>
+            <p>Components are open for extension but closed for modification:</p>
+            <ul>
+                <li>New filter types can be added without changing existing filter logic</li>
+                <li>New menu item types can be added without modifying ItemList component</li>
+                <li>Additional payment methods can be integrated without changing cart logic</li>
+                <li>New authentication providers can be added via strategy pattern</li>
+                <li>Plugin architecture allows for feature extensions</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Liskov Substitution Principle (LSP)</strong>
+            <p>Components can be replaced with their subtypes without breaking functionality:</p>
+            <ul>
+                <li>Different shimmer components can substitute for each other</li>
+                <li>Various card components follow the same interface contract</li>
+                <li>Alternative API hooks can replace existing ones seamlessly</li>
+                <li>Different toast notification types maintain consistent behavior</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Interface Segregation Principle (ISP)</strong>
+            <p>Components depend only on interfaces they actually use:</p>
+            <ul>
+                <li>Components receive only the props they need, not entire objects</li>
+                <li>Specific prop interfaces for each component type</li>
+                <li>Minimal API surface area for custom hooks</li>
+                <li>Focused context providers for specific concerns</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Dependency Inversion Principle (DIP)</strong>
+            <p>High-level modules don't depend on low-level modules; both depend on abstractions:</p>
+            <ul>
+                <li>Components depend on abstractions (custom hooks, context) not concrete implementations</li>
+                <li>API layer abstracted through custom hooks and service functions</li>
+                <li>Database operations abstracted through API interfaces</li>
+                <li>UI components don't directly depend on external services</li>
+            </ul>
+        </div>
+
+        <h3>React-Specific Architectural Patterns</h3>
+
+        <h4>1. Compound Component Pattern</h4>
+        <p><strong>Theory</strong>: Components that work together to form a complete UI, sharing implicit state.</p>
+        <div class="feature-box">
+            <strong>Implementation</strong>: <code>RestaurantMenu</code> with <code>RestaurantCategory</code> and <code>ItemList</code> working together to create a cohesive menu experience.
+        </div>
+
+        <h4>2. Render Props Pattern</h4>
+        <p><strong>Theory</strong>: Sharing code between components using props with function values.</p>
+        <div class="feature-box">
+            <strong>Implementation</strong>: Error boundary components with custom error UI rendering, loading states with custom loading components.
+        </div>
+
+        <h4>3. Higher-Order Component (HOC) Pattern</h4>
+        <p><strong>Theory</strong>: Functions that take components and return enhanced components.</p>
+        <div class="feature-box">
+            <strong>Implementation</strong>: Redux <code>connect</code> pattern through hooks, route protection, and component enhancement for analytics.
+        </div>
+
+        <h4>4. Custom Hooks Pattern</h4>
+        <p><strong>Theory</strong>: Extracting component logic into reusable functions that use React hooks.</p>
+        <div class="feature-box">
+            <strong>Implementation</strong>: <code>useRestaurantMenu</code>, <code>useOnlineStatus</code>, and other custom hooks that encapsulate complex logic and state management.
+        </div>
+
+        <h2 id="setup-guide">5. Setup and Installation Guide</h2>
+
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>Node.js (v14 or higher)</li>
+            <li>npm or yarn package manager</li>
+            <li>Git for version control</li>
+            <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
+        </ul>
+
+        <h3>Local Development Setup</h3>
+
+        <h4>1. Clone the Repository</h4>
+        <pre><code>git clone https://github.com/Algoraver22/Food_Manor.git
+cd Food_Manor</code></pre>
+
+        <h4>2. Install Dependencies</h4>
+        <pre><code>npm install
+# or
+yarn install</code></pre>
+
+        <h4>3. Start Development Server</h4>
+        <pre><code>npm start
+# or
+yarn start</code></pre>
+
+        <h4>4. Access the Application</h4>
+        <ul>
+            <li><strong>Development Server</strong>: http://localhost:3000</li>
+            <li><strong>Hot Reload</strong>: Automatic browser refresh on code changes</li>
+        </ul>
+
+        <h3>Build for Production</h3>
+
+        <h4>1. Create Production Build</h4>
+        <pre><code>npm run build
+# or
+yarn build</code></pre>
+
+        <h4>2. Test Production Build Locally</h4>
+        <pre><code>npm install -g serve
+serve -s build</code></pre>
+
+        <h2 id="api-docs">6. API Documentation</h2>
+
+        <h3>External API Integration</h3>
+
+        <h4>Swiggy Restaurant List API</h4>
+        <p><strong>Endpoint</strong>: <code>https://www.swiggy.com/dapi/restaurants/list/v5</code></p>
+
+        <p><strong>Parameters</strong>:</p>
+        <ul>
+            <li><code>lat</code>: Latitude (default: 12.9351929)</li>
+            <li><code>lng</code>: Longitude (default: 77.624480699999999)</li>
+            <li><code>page_type</code>: DESKTOP_WEB_LISTING</li>
+        </ul>
+
+        <h4>Swiggy Restaurant Menu API</h4>
+        <p><strong>Endpoint</strong>: <code>https://www.swiggy.com/dapi/menu/pl</code></p>
+
+        <p><strong>Parameters</strong>:</p>
+        <ul>
+            <li><code>page-type</code>: REGULAR_MENU</li>
+            <li><code>complete-menu</code>: true</li>
+            <li><code>lat</code>: Latitude</li>
+            <li><code>lng</code>: Longitude</li>
+            <li><code>restaurantId</code>: Restaurant ID</li>
+        </ul>
+
+        <h4>Image CDN</h4>
+        <p><strong>Base URL</strong>: <code>https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/</code></p>
+        <p><strong>Usage</strong>: <code>${CDN_URL}${imageId}</code></p>
+
+        <h3>Custom Hooks API</h3>
+
+        <h4>useRestaurantMenu Hook</h4>
+        <pre><code>const resInfo = useRestaurantMenu(restaurantId);
+// Returns: Restaurant menu data or null while loading</code></pre>
+
+        <h4>useOnlineStatus Hook</h4>
+        <pre><code>const onlineStatus = useOnlineStatus();
+// Returns: boolean (true if online, false if offline)</code></pre>
+
+        <h3>Redux Store API</h3>
+
+        <h4>Cart Actions</h4>
+        <pre><code>// Add item to cart
+dispatch(addItem(menuItem));
+
+// Remove last item from cart
+dispatch(removeItem());
+
+// Clear entire cart
+dispatch(clearCart());</code></pre>
+
+        <h4>Cart Selectors</h4>
+        <pre><code>// Get all cart items
+const cartItems = useSelector((store) => store.cart.items);
+
+// Get cart item count
+const itemCount = cartItems.length;</code></pre>
+
+        <h2 id="contributing">7. Contributing Guidelines</h2>
+
+        <h3>Code Style</h3>
+        <ul>
+            <li>Use functional components with hooks</li>
+            <li>Follow React naming conventions (PascalCase for components)</li>
+            <li>Use Tailwind CSS for styling</li>
+            <li>Implement proper error handling</li>
+            <li>Write meaningful commit messages</li>
+        </ul>
+
+        <h3>Development Workflow</h3>
+        <ol>
+            <li>Create feature branch</li>
+            <li>Implement changes</li>
+            <li>Test functionality</li>
+            <li>Create pull request</li>
+            <li>Review and merge</li>
+        </ol>
+
+        <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+        <h3>Common Issues</h3>
+
+        <div class="warning-box">
+            <h4>API CORS Errors</h4>
+            <p><strong>Problem</strong>: CORS policy blocking API requests</p>
+            <p><strong>Solution</strong>: Use browser extension to disable CORS for development, or implement proxy server</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>Images Not Loading</h4>
+            <p><strong>Problem</strong>: Cloudinary images not displaying</p>
+            <p><strong>Solution</strong>: Check image ID format and CDN URL construction</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>Cart State Not Persisting</h4>
+            <p><strong>Problem</strong>: Cart items disappear on page refresh</p>
+            <p><strong>Solution</strong>: Implement localStorage persistence for cart state</p>
+        </div>
+
+        <h2 id="future-enhancements">9. Future Enhancements</h2>
+
+        <h3>Planned Features</h3>
+        <ul>
+            <li>User authentication and profiles</li>
+            <li>Order history and tracking</li>
+            <li>Payment gateway integration</li>
+            <li>Real-time order updates</li>
+            <li>Push notifications</li>
+            <li>Offline functionality</li>
+            <li>Multi-language support</li>
+        </ul>
+
+        <h3>Technical Improvements</h3>
+        <ul>
+            <li>TypeScript migration</li>
+            <li>Server-side rendering (Next.js)</li>
+            <li>Progressive Web App features</li>
+            <li>Advanced caching strategies</li>
+            <li>Performance monitoring</li>
+            <li>Automated testing pipeline</li>
+        </ul>
+
+        <h2>10. License & Contact</h2>
+
+        <div class="info-box">
+            <h3>License</h3>
+            <p>This project is licensed under the MIT License.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Developer</strong>: Anurag Chaturvedi</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/Algoraver22">Algoraver22</a></li>
+                <li><strong>Project Repository</strong>: <a href="https://github.com/Algoraver22/Food_Manor">Food_Manor</a></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Acknowledgments</h3>
+            <ul>
+                <li>React.js and ecosystem</li>
+                <li>Swiggy API for restaurant data</li>
+                <li>Tailwind CSS for styling</li>
+                <li>Redux Toolkit for state management</li>
+                <li>Various open-source libraries</li>
+            </ul>
+        </div>
+
+        <hr style="margin: 40px 0; border: 1px solid #ddd;">
+        
+        <p style="text-align: center; color: #7f8c8d; font-style: italic;">
+            <em>Last updated: December 2024</em><br>
+            Built with 🍔, ☕, and React ⚛️ by Anurag Chaturvedi
+        </p>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printDocument() {
+            window.print();
+        }
+
+        // Add print button
+        const printButton = document.createElement('button');
+        printButton.innerHTML = '🖨️ Print/Save as PDF';
+        printButton.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        `;
+        printButton.onclick = printDocument;
+        document.body.appendChild(printButton);
+    </script>
+</body>
+</html>
